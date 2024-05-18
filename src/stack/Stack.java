@@ -19,12 +19,14 @@ public class Stack<Trem> {
     }
 
     public Trem desempilhar() throws Exception {
-        if(this.estaVazia()) {
-            return null;
+        if (this.estaVazia()) {
+            throw new Exception("A pilha está vazia");
         }
 
-        return this.vetor.get(this.topo);
+        this.topo--; // Decrementa o topo
+        return this.vetor.remove(this.topo); // Remove e retorna o elemento do topo
     }
+
 
     public boolean estaVazia() {
         return this.vetor.isEmpty();

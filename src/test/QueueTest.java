@@ -3,8 +3,10 @@ package test;
 import org.junit.Before;
 import org.junit.Test;
 import queue.Queue;
+import stack.Stack;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class QueueTest {
 
@@ -21,8 +23,10 @@ public class QueueTest {
     }
 
     @Test
-    public void testfilaNaoEstaVazia() {
-        assertFalse(fila.estaVazia());
+    public void testNaoEstaVazia() {
+        Queue<Integer> fila = new Queue<>();
+        fila.enfileirar(1);
+        assertFalse(fila.estaVazia(), "A fila não deve estar vazia após inserir um valor");
     }
 
     @Test
@@ -51,7 +55,7 @@ public class QueueTest {
     }
 
     @Test
-    public void testDesenfileirar() {
+    public void testDesenfileirar() throws Exception {
         fila.enfileirar(10);
         fila.enfileirar(100);
         fila.enfileirar(1000);
@@ -64,7 +68,7 @@ public class QueueTest {
     }
 
     @Test(expected = java.lang.Exception.class)
-    public void testDesenfileirarFilaVazia() {
+    public void testDesenfileirarFilaVazia() throws Exception {
         fila.desenfileirar();
     }
 }
